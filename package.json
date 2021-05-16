@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-nitro-helpers",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "require": "./dist/nuxt-nitro-helpers.js",
+      "import": "./dist/nuxt-nitro-helpers.mjs"
+    }
+  },
+  "main": "./dist/nuxt-nitro-helpers.js",
+  "module": "./dist/nuxt-nitro-helpers.mjs",
+  "types": "./dist/nuxt-nitro-helpers.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "siroc build",
+    "lint": "eslint --ext .ts src",
+    "prepack": "yarn build",
+    "release": "standard-version && git push --follow-tags && npm publish"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^6.0.0",
+    "eslint": "^7.26.0",
+    "siroc": "^0.10.0",
+    "standard-version": "^9.3.0",
+    "typescript": "^4.2.4"
+  }
+}
