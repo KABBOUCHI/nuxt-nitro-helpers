@@ -1,4 +1,4 @@
 import Route from './route/Route'
-import { useRoute } from './route/useRoute'
+import { useRoute, useGetRoute, usePostRoute, usePatchRoute, useDeleteRoute } from './route/useRoute'
 
-export { Route, useRoute }
+export { Route, useRoute, useGetRoute, usePostRoute, usePatchRoute, useDeleteRoute }
