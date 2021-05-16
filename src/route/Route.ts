@@ -3,6 +3,7 @@ import { Handle } from './types'
 
 class Route {
   methodHandlers = new Map<string, Handle>();
+  _fallback: Handle = null;
 
   get (handler: Handle) {
     this.methodHandlers.set('GET', handler)
@@ -24,6 +25,10 @@ class Route {
     this.methodHandlers.set('DELETE', handler)
   }
 
+  fallback (handler: Handle) {
+    this._fallback = handler
+  }
+
   handle () {
     return async (req: IncomingMessage, res: ServerResponse) => {
       const method = (req.method || 'GET').toUpperCase()
@@ -31,6 +36,10 @@ class Route {
 
       if (handler) {
         return await handler(req, res)
+      }
+
+      if (this._fallback) {
+        return await this._fallback(req, res)
       }
 
       res.statusCode = 404

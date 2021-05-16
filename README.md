@@ -28,3 +28,31 @@ export default useRoute({
   }
 });
 ```
+
+```js
+// ./servers/api/me.ts
+
+import { useGetRoute } from "nuxt-nitro-helpers";
+
+export default useGetRoute(() => {
+    return "GET /me";
+});
+```
+
+```js
+// ./servers/api/quotes.ts
+
+import { useRoute } from "nuxt-nitro-helpers";
+
+export default useRoute({
+  get() {
+    return "GET /quotes";
+  },
+
+  fallback(_, res) {
+    res.statusCode = 405;
+
+    return "Method Not Allowed";
+  },
+});
+```

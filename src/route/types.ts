@@ -7,4 +7,6 @@ export declare type Methods = {
   post?: Handle;
   patch?: Handle;
   delete?: Handle;
+
+  fallback?: Handle;
 };

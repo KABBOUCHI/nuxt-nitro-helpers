@@ -15,26 +15,30 @@ export function useRoute (methods: Methods = {}) {
   return route.handle()
 }
 
-export function useGetRoute (get: Handle) {
+export function useGetRoute (get: Handle, fallback: Handle = null) {
   return useRoute({
-    get
+    get,
+    fallback
   })
 }
 
-export function usePostRoute (post: Handle) {
+export function usePostRoute (post: Handle, fallback: Handle = null) {
   return useRoute({
-    post
+    post,
+    fallback
   })
 }
 
-export function usePatchRoute (patch: Handle) {
+export function usePatchRoute (patch: Handle, fallback: Handle = null) {
   return useRoute({
-    patch
+    patch,
+    fallback
   })
 }
 
-export function useDeleteRoute (del: Handle) {
+export function useDeleteRoute (del: Handle, fallback: Handle = null) {
   return useRoute({
-    delete: del
+    delete: del,
+    fallback
   })
 }
